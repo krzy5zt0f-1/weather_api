@@ -3,11 +3,13 @@ import './App.css';
 import App from './App';
 
 function Select() {
+  let storedCity = null;
   const [choice, setChoice] = useState(null)
   const [place, setPlace] = useState("");
   const handleSubmit = (evt) => {
       evt.preventDefault();
-      alert(`Submitting City ${place}`)
+      alert(`Submitting City ${place}`);
+      window.localStorage.setItem(storedCity, place);
       setChoice(place);
   }
   return (
@@ -23,7 +25,7 @@ function Select() {
 
       <input Style="border: none;background-color: rgb(34, 213, 230);" type="submit" value="Submit" />
     </form>
-    <div><App place={choice}/></div>
+    <div><App place={choice || window.localStorage.getItem(storedCity)}/></div>
     </div>
   );
 }

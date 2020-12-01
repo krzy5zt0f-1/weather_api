@@ -10,7 +10,7 @@ function App({place}) {
   const  { REACT_APP_WEATHER_KEY } = process.env;
   useEffect(() => {
     fetch("http://api.openweathermap.org/data/2.5/weather?q=" +
-    `${place || "London"}` +
+    `${place || "London" }` +
     REACT_APP_WEATHER_KEY)
     .then(res => res.json())
     .then(
