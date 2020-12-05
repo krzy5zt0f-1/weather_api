@@ -13,7 +13,7 @@ function Select() {
   }
   return (
     <div className="App-header">
-    <form Style="background-color: #282c34;align-items: center;justify-content: center;display: flex;flex-direction: column;" onSubmit={handleSubmit}>
+    <form id="form" Style="background-color: #282c34;align-items: center;justify-content: center;display: flex;flex-direction: column;" onSubmit={handleSubmit}>
         <input
           Style="background-color: #282c34;align-items: center;justify-content: center;display: flex;flex-direction: column;color: rgb(34, 213, 230);"
           type="text"
@@ -22,9 +22,9 @@ function Select() {
           onChange={e => setPlace(e.target.value)}
         />
 
-      <input className="submitButton" type="submit" value="Submit" />
+      <input id="submit" className="submitButton" type="submit" value="Submit" />
     </form>
-    <div><App place={choice || window.localStorage.getItem('storedCity')}/></div>
+    <div id="display"><App place={choice || window.localStorage.getItem('storedCity')}/></div>
     </div>
   );
 }
