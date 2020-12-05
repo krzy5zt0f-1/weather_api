@@ -3,7 +3,7 @@ import './App.css';
 
 
 function App({place}) {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [weather, setWeather] = useState([]);
   const [city, setCity] = useState([]);
@@ -16,18 +16,19 @@ function App({place}) {
     .then(
       (result) => {
         setIsLoaded(true);
+        setError(false);
         setWeather(result.main.temp);
         setCity(result.name);
-      },
-      (error) => {
-        setIsLoaded(true);
-          setError(error);
       }
-    )
-  },)
+    ).catch((err) =>{
+        console.error('Error:', err);
+        setIsLoaded(false);
+        setError(true);
+  },);
+}, [REACT_APP_WEATHER_KEY, place]);
 
   if (error) {
-    return <div className="App-header">Error: {error.message}</div>;
+    return <div className="App-header">Error: could not find {window.localStorage.getItem('storedCity')}</div>;
   } else if (!isLoaded) {
     return <div className="App-header">Loading...</div>;
   } else {

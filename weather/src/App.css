@@ -36,3 +36,4 @@
     transform: rotate(360deg);
   }
 }
+ .submitButton {border: none; background-color: rgb(34, 213, 230)}

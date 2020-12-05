@@ -3,14 +3,13 @@ import './App.css';
 import App from './App';
 
 function Select() {
-  let storedCity = null;
   const [choice, setChoice] = useState(null)
   const [place, setPlace] = useState("");
   const handleSubmit = (evt) => {
       evt.preventDefault();
-      alert(`Submitting City ${place}`);
-      window.localStorage.setItem(storedCity, place);
+      alert(`Submitting City: ${place}`);
       setChoice(place);
+      window.localStorage.setItem('storedCity', place);
   }
   return (
     <div className="App-header">
@@ -23,9 +22,9 @@ function Select() {
           onChange={e => setPlace(e.target.value)}
         />
 
-      <input Style="border: none;background-color: rgb(34, 213, 230);" type="submit" value="Submit" />
+      <input className="submitButton" type="submit" value="Submit" />
     </form>
-    <div><App place={choice || window.localStorage.getItem(storedCity)}/></div>
+    <div><App place={choice || window.localStorage.getItem('storedCity')}/></div>
     </div>
   );
 }
