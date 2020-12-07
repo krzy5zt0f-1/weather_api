@@ -8,3 +8,7 @@ Aditionally, developed app has been test driven using `cypress` in order to make
 
 To start my testing, I have usued oficial `cypress` documentation that can be found [here](https://www.cypress.io/).
 I also have made sure to immerse into usage of `cypress` with the following [artcile](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file).
+
+### Result
+
+You can find the result of this exercise deployed [here](https://shielded-caverns-30762.herokuapp.com/).
